@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titulo %}Login{% endblock %}
+
+{% block contenido %}
+    <h2>Iniciar sesion</h2>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label>Usuario</label>
+        <input type="text" name="usuario">
+
+        <label>Contraseña</label>
+        <input type="password" name="password">
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <!-- usuarios de prueba: carlos/1111, laura/2222, diego/3333 -->
+{% endblock %}

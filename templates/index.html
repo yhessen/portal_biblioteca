@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+    {% if cerro_sesion %}
+        <p class="info">Sesión cerrada correctamente.</p>
+    {% endif %}
+
+    {% if ultimo_usuario %}
+        <p>Último usuario registrado: {{ ultimo_usuario }}.</p>
+        <a href="{{ url_for('borrar_cookie') }}">borrar cookie</a>
+    {% else %}
+        <p>Bienvenido al Portal de Biblioteca.</p>
+    {% endif %}
+
+    <p>Desde aqui puedes ver los libros disponibles o iniciar sesion para ver tu perfil.</p>
+{% endblock %}

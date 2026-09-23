@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %}Portal de Biblioteca{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Portal de Biblioteca</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('libros_view') }}">Libros</a>
+            <a href="{{ url_for('perfil') }}">Perfil</a>
+            {% if session.usuario %}
+                <a href="{{ url_for('logout') }}">Salir ({{ session.usuario }})</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block contenido %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Neyza Rocio Mena Huaraya - TEM-742</p>
+    </footer>
+</body>
+</html>
