@@ -16,6 +16,7 @@ libros = [
 ]
 
 
+# Pagina principal: lee la cookie ultimo_usuario y el mensaje de logout
 @app.route("/")
 def index():
     ultimo_usuario = request.cookies.get("ultimo_usuario")
@@ -23,6 +24,7 @@ def index():
     return render_template("index.html", ultimo_usuario=ultimo_usuario, cerro_sesion=cerro_sesion)
 
 
+# Ruta de login: valida usuario y contraseña contra el diccionario "usuarios"
 @app.route("/login", methods=["GET", "POST"])
 def login():
     error = None
@@ -48,6 +50,7 @@ def libros_view():
     return render_template("libros.html", libros=libros, usuario=usuario)
 
 
+# Ruta protegida: si no hay sesion activa, redirige al login
 @app.route("/perfil")
 def perfil():
     if "usuario" not in session:
